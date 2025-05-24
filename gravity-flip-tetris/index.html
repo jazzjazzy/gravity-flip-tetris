@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity-Flip Tetris</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Gravity-Flip Tetris</h1>
+        
+        <div class="game-wrapper">
+            <div class="game-info">
+                <div class="score-container">
+                    <h2>Score: <span id="score">0</span></h2>
+                    <h3>Level: <span id="level">1</span></h3>
+                </div>
+                
+                <div class="next-piece-container">
+                    <h3>Next Piece</h3>
+                    <canvas id="next-piece-canvas"></canvas>
+                </div>
+                
+                <div class="instructions">
+                    <h3>Controls</h3>
+                    <p>J: Move left</p>
+                    <p>L: Move right</p>
+                    <p>K: Rotate piece</p>
+                    <p>Down: Soft drop</p>
+                    <p>Space: Hard drop</p>
+                    <p>F: Flip gravity</p>
+                </div>
+            </div>
+            
+            <div class="game-main">
+                <canvas id="game-canvas"></canvas>
+                
+                <div class="controls">
+                    <button id="gravity-flip-btn">Flip Gravity</button>
+                    <button id="start-btn">Start Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/pieces.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

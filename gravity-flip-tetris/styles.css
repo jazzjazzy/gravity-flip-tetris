@@ -1,0 +1,158 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.game-container {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #03dac6;
+    text-align: center;
+}
+
+/* Game Layout */
+.game-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+.game-main {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Game Canvas */
+#game-canvas {
+    background-color: #000000;
+    border: 2px solid #333333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    width: 300px;
+    height: 600px;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#gravity-flip-btn {
+    background-color: #ff9800;
+}
+
+#gravity-flip-btn:hover {
+    background-color: #e68a00;
+}
+
+/* Score Container */
+.score-container {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.score-container h2, .score-container h3 {
+    margin: 5px 0;
+}
+
+/* Next Piece Container */
+.next-piece-container {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#next-piece-canvas {
+    background-color: #000000;
+    border: 1px solid #333333;
+    width: 120px;
+    height: 120px;
+    margin-top: 10px;
+}
+
+/* Instructions */
+.instructions {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.instructions h3 {
+    margin-bottom: 10px;
+}
+
+.instructions p {
+    margin: 5px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .game-wrapper {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    
+    .game-info {
+        width: 100%;
+    }
+    
+    #game-canvas {
+        width: 250px;
+        height: 500px;
+    }
+}
