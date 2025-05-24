@@ -31,6 +31,15 @@ class Game {
         this.currentPiece = null;
         this.nextPiece = null;
         
+        // Background image
+        this.backgroundImage = new Image();
+        this.backgroundImage.src = 'bg/output.png';
+        this.backgroundLoaded = false;
+        this.backgroundImage.onload = () => {
+            this.backgroundLoaded = true;
+            this.render(); // Re-render once the image is loaded
+        };
+        
         // Set up the canvas dimensions
         this.resizeCanvas();
         
@@ -277,9 +286,13 @@ class Game {
         // Clear the canvas
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
+        // Background is now handled by CSS
+        // Just ensure the canvas is clear
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
         // Draw the background grid
-        this.ctx.strokeStyle = '#333';
-        this.ctx.lineWidth = 0.5;
+        this.ctx.strokeStyle = 'rgba(204, 204, 204, 0.5)';
+        this.ctx.lineWidth = 1;
         
         // Draw vertical lines
         for (let x = 0; x <= this.board.width; x++) {

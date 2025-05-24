@@ -11,7 +11,7 @@
         <h1>Gravity-Flip Tetris</h1>
         
         <div class="game-wrapper">
-            <div class="game-info">
+            <div class="game-info left">
                 <div class="score-container">
                     <h2>Score: <span id="score">0</span></h2>
                     <h3>Level: <span id="level">1</span></h3>
@@ -21,16 +21,6 @@
                     <h3>Next Piece</h3>
                     <canvas id="next-piece-canvas"></canvas>
                 </div>
-                
-                <div class="instructions">
-                    <h3>Controls</h3>
-                    <p>J: Move left</p>
-                    <p>L: Move right</p>
-                    <p>K: Rotate piece</p>
-                    <p>Down: Soft drop</p>
-                    <p>Space: Hard drop</p>
-                    <p>F: Flip gravity</p>
-                </div>
             </div>
             
             <div class="game-main">
@@ -39,6 +29,20 @@
                 <div class="controls">
                     <button id="gravity-flip-btn">Flip Gravity</button>
                     <button id="start-btn">Start Game</button>
+                </div>
+            </div>
+            
+            <div class="game-info right">
+                <div class="instructions">
+                    <h3>Controls</h3>
+                    <p>S: Start game</p>
+                    <p>Esc: Pause game</p>
+                    <p>J: Move left</p>
+                    <p>L: Move right</p>
+                    <p>K: Rotate piece</p>
+                    <p>I: Soft drop</p>
+                    <p>Space: Hard drop</p>
+                    <p>F: Flip gravity</p>
                 </div>
             </div>
         </div>

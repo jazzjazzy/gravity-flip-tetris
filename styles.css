@@ -34,6 +34,7 @@ h1 {
 .game-wrapper {
     display: flex;
     width: 100%;
+    justify-content: center;
     gap: 20px;
 }
 
@@ -42,23 +43,56 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    order: 2; /* Place in the middle */
 }
 
 .game-info {
-    flex: 1;
+    flex: 0 0 200px; /* Fixed width for side panels */
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
+.game-info.left {
+    order: 1; /* Place on the left */
+}
+
+.game-info.right {
+    order: 3; /* Place on the right */
+}
+
 /* Game Canvas */
-#game-canvas {
-    background-color: #000000;
-    border: 2px solid #333333;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
+.game-main {
+    position: relative;
     width: 300px;
     height: 600px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+#game-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: transparent;
+    width: 300px;
+    height: 600px;
+}
+
+.game-main::before {
+    content: "";
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-image: url('bg/output.png');
+    background-size: 110% 110%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
 }
 
 /* Controls */
@@ -117,7 +151,7 @@ button:hover {
 }
 
 #next-piece-canvas {
-    background-color: #000000;
+    background-color: transparent;
     border: 1px solid #333333;
     width: 120px;
     height: 120px;
@@ -141,14 +175,29 @@ button:hover {
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .game-wrapper {
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
     }
     
     .game-info {
         width: 100%;
+        max-width: 400px;
+        flex: 0 0 auto;
+    }
+    
+    .game-main {
+        order: 1;
+        margin-bottom: 20px;
+    }
+    
+    .game-info.left {
+        order: 2;
+    }
+    
+    .game-info.right {
+        order: 3;
     }
     
     #game-canvas {

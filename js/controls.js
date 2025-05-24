@@ -16,6 +16,24 @@ class Controls {
      */
     setupKeyboardControls() {
         document.addEventListener('keydown', (event) => {
+            // Controls that work even when game is not playing
+            switch (event.key) {
+                case 's':
+                case 'S':
+                    if (this.game.isGameOver) {
+                        this.game.reset();
+                    } else if (!this.game.isPlaying || this.game.isPaused) {
+                        this.game.start();
+                    }
+                    break;
+                case 'Escape':
+                    if (!this.game.isGameOver) {
+                        this.game.togglePause();
+                    }
+                    break;
+            }
+            
+            // Controls that only work when game is playing
             if (!this.game.isPlaying) return;
             
             switch (event.key) {
@@ -31,7 +49,8 @@ class Controls {
                 case 'K':
                     this.rotate();
                     break;
-                case 'ArrowDown':
+                case 'i':
+                case 'I':
                     this.softDrop();
                     break;
                 case ' ': // Space key
@@ -40,10 +59,6 @@ class Controls {
                 case 'f':
                 case 'F':
                     this.flipGravity();
-                    break;
-                case 'p':
-                case 'P':
-                    this.game.togglePause();
                     break;
             }
         });
